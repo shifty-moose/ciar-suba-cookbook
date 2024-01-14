@@ -1,6 +1,26 @@
+import { Link, NavLink } from "react-router-dom";
 const Header = () => {
+  const activeStyles = {
+    fontWeight: "bold",
+    //textDecoration: "underline",
+}
+
   return (
-    <div>Header</div>
+    <header>
+      <Link to="/" className="nav-logo">LOGO COMES HERE</Link>
+      <nav>
+        <NavLink
+          to="#"
+          style={({isActive}) => isActive ? activeStyles : null}>
+          ADD MORE
+        </NavLink>
+        <NavLink
+         to="#"
+         style={({isActive}) => isActive ? activeStyles : null}>
+          ADD MORE
+        </NavLink>      
+      </nav>
+    </header>
   );
 };
 
