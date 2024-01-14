@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
-import './App.css'
-import useContentful from './hook/useContentful';
+import useContentful from '../hook/useContentful';
 
-
-function App() {
+function Home() {
   const { getReceipes } = useContentful();
 
   useEffect(()=> { 
@@ -18,10 +16,19 @@ function App() {
 
 
   return (
-    <>
-      <h1>Hello World!</h1>
-    </>
+    <main>
+      Nav
+      <section>
+        hero
+      </section>
+      <section>
+        super delicious
+      </section>
+      <section>
+        footer
+      </section>
+    </main>
   )
 }
 
-export default App
+export default Home
