@@ -32,3 +32,13 @@ header {
     }
   }
 }
+
+footer {
+  background-color: #161616;
+  color: #AAAAAA;
+  height: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}

@@ -16,18 +16,14 @@ function Home() {
 
 
   return (
-    <main>
-      Nav
+    <>
       <section>
         hero
       </section>
       <section>
         super delicious
-      </section>
-      <section>
-        footer
-      </section>
-    </main>
+      </section>  
+    </>
   )
 }
 
