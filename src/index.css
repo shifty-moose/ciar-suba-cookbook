@@ -33,6 +33,30 @@ header {
   }
 }
 
+.detail-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.detail-explanation{
+  display: flex;
+  margin-bottom: 5rem;
+
+  .detail-ingridients{
+    width: 30rem;
+    height: auto;
+  }
+  
+  .detail-method{
+    width: 30rem;
+    height: auto;
+  }
+
+}
+
+
 footer {
   background-color: #161616;
   color: #AAAAAA;
