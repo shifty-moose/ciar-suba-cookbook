@@ -10,7 +10,7 @@ const Header = () => {
       <Link to="/" className="nav-logo">LOGO COMES HERE</Link>
       <nav>
         <NavLink
-          to="/1"
+          to="/2"
           style={({isActive}) => isActive ? activeStyles : null}>
           TEST TO RECEIPE DETAIL
         </NavLink>

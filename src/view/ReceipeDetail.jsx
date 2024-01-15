@@ -1,15 +1,15 @@
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 import useContentful from "../hook/useContentful";
 
-export function loader() {
+export async function loader({ params }) {
   const { getSingleReceipe } = useContentful();
-  return getSingleReceipe();
+  const data = await getSingleReceipe(params.id);
+  return data;
 }
 
 const ReceipeDetail = () => {
-  const { id } = useParams();
-  const receipe = useLoaderData(id);
-  console.log(receipe)
+  const receipe = useLoaderData();
+
   const { title, method , ingredients, picture} = receipe;
   return (
     <section className="detail-section">
@@ -23,16 +23,16 @@ const ReceipeDetail = () => {
         <div className="detail-ingridients">
           <h3>Ingridients</h3>
           <ul>
-            {ingredients.map(ingredient => (
-              <li>{ingredient}</li>
+            {ingredients.map((ingredient, index) => (
+              <li key={index}>{ingredient}</li>
             ))}
           </ul>
         </div>
         <div className="detail-method">
         <h3>How to cook</h3>
           <ul>
-            {method.map(step => (
-              <li>{step}</li>
+            {method.map((step, index) => (
+              <li key={index}>{step}</li>
             ))}
           </ul>
         </div>
