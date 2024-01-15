@@ -1,19 +1,15 @@
-import { useState, useEffect } from 'react'
 import useContentful from '../hook/useContentful';
+import { useLoaderData } from "react-router-dom";
+
+export function loader() {
+  const { getReceipes } = useContentful();
+  return getReceipes();
+}
 
 function Home() {
-  const { getReceipes } = useContentful();
-
-  useEffect(()=> { 
-    console.log("running")
-    const fetchReceipes = async () => {
-      const response = await getReceipes();
-      console.log(response);
-    };
-  
-    fetchReceipes();  
-  }, [])
-
+  // https://reactrouter.com/en/main/hooks/use-loader-data
+  const receipes = useLoaderData()
+  console.log(receipes)
 
   return (
     <>
