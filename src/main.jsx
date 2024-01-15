@@ -1,7 +1,9 @@
 import React from 'react';
 import Home from './view/Home.jsx';
 import Layout from './components/Layout.jsx';
+import Error from './components/Error.jsx';
 import './index.css';
+import { loader as receipesLoader } from "./view/Home";
 
 import ReactDOM from 'react-dom/client';
 import {
@@ -13,7 +15,11 @@ import {
 
 const router = createBrowserRouter(createRoutesFromElements(
   <Route path="/" element={<Layout />}>
-    <Route index element={<Home />}/>
+    <Route 
+      index 
+      element={<Home />}
+      loader={receipesLoader} 
+      errorElement={<Error />}/>
   </Route>
 ))
 
@@ -22,8 +28,8 @@ function App() {
     <RouterProvider router={router} />
   )
 }
-
-ReactDOM.createRoot(document.getElementById('root')).render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
