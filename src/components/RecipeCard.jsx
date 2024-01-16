@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
+
 import '../view/RecipeCard.css'; 
 
 const RecipeCard = ({ recipe }) => {
@@ -13,6 +15,7 @@ const RecipeCard = ({ recipe }) => {
 
     console.log(randomRecipeSelection);
 
+    const navigate = useNavigate();
 
     return (
         <>
@@ -27,9 +30,8 @@ const RecipeCard = ({ recipe }) => {
                     <div 
                         className="card" 
                         key={element.title}
-                        onClick={(e) => {
-                            console.log(e.target);
-                        }}>
+                        onClick={() => navigate(`/${element.receipeId}`)}
+                    >
                         <img src={element.picture.file.url} alt={element.title} className="cardImg" />
                         <div className="card-body">
                             <h3 className="card-title">{element.title}</h3>
