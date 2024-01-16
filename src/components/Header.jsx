@@ -14,7 +14,7 @@ const Header = () => {
       <nav>
     
         <NavLink
-          to="/2"
+          to="#"
           style={({isActive}) => isActive ? activeStyles : null}>
           Link #1
         </NavLink>
