@@ -5,8 +5,8 @@
 
 .heroImg {
     width: 100%;
-    min-height: 400px;
-    max-height: 500px;
+    min-height: 460px;
+    max-height: 550px;
     object-fit: cover;
     margin: 0;
     border-top: 16px solid rgb(227, 7, 19);
@@ -14,8 +14,8 @@
 }
 
 img {
-    width: 350px;
-    height: 350px;
+    width: 320px;
+    height: 320px;
     object-fit: cover;
     /* margin: 1rem 1rem 0rem 1rem; */
     border-radius: 6px 6px 0px 0px;
@@ -28,7 +28,7 @@ h1 {
     margin: 0;
     color: rgb(52, 52, 52);
     margin-bottom: 2rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 h3 {
@@ -48,6 +48,8 @@ h4, h5 {
 
 h4 {
     color: rgb(71, 71, 71);
+    font-size: 0.8rem;
+    word-wrap: break-word; /* Add this line */
 }
 
 h5 {
@@ -81,4 +83,8 @@ h5 {
     margin: 1.4rem;
     border-radius: 6px;
     
+}
+
+.card-body {
+    max-width: 320px;
 }

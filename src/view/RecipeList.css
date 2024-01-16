@@ -3,10 +3,16 @@
     background-color: rgb(249, 236, 208);
     display: flex;
     flex-direction: column;
+    /* background-color: #f9ecd0;
+    opacity: 1;
+    background-image:  linear-gradient(135deg, #f1e3c6 25%, transparent 25%), linear-gradient(225deg, #f1e3c6 25%, transparent 25%), linear-gradient(45deg, #f1e3c6 25%, transparent 25%), linear-gradient(315deg, #f1e3c6 25%, #f9ecd0 25%);
+    background-position:  34px 0, 34px 0, 0 0, 0 0;
+    background-size: 34px 34px;
+    background-repeat: repeat;  */
 }
 
 .recipesDiv h1 {
-    padding-top: 4rem;
+    padding-top: 6rem;
     color: rgb(81, 50, 1);
     font-size: 2rem;
     border-top: 16px solid rgb(11, 151, 32);
@@ -16,14 +22,17 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
     list-style: none;
     padding-top: 0rem;
     padding-bottom: 6rem;
+    padding: 0rem 1.2rem 6rem 1.2rem;
     justify-content: center;
 }
 
 .recipeListItem {
-    width: 280px;
+    width: 250px;
     height: 350px;
     display: flex;
     flex-direction: column;
@@ -32,6 +41,8 @@
     border-radius: 4px;
     border-bottom: 4px solid rgb(149, 116, 61);
     transition: 0.4s;
+    background-color: rgb(249, 236, 208);
+
 }
 
 

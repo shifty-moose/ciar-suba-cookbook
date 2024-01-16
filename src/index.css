@@ -8,7 +8,7 @@
 
 .logo {
   width: auto;
-  height: 120px;
+  height: 100px;
   object-fit: fill;
   padding: 0.6rem;
   margin-bottom: 1rem;
@@ -19,25 +19,18 @@
 
 .logo:hover {
   cursor: pointer;
-  background-color: white;
-  transform: scale(1.05);
+  transform: scale(1.03);
   transition: transform 0.5s, background-color 0.5s, opacity 0.5s;
   opacity: 0.8;
-}
-
-
-.logo:hover {
-  cursor: pointer;
-  transform: scale(1.05);
-  opacity: 0.9;
 }
 
 
 html, body {
   margin: 0;
   padding: 0;
-  background-color: rgb(255, 248, 232);
+  background-color: rgb(255, 249, 236);
 }
+
 
 header {
   height: auto;
