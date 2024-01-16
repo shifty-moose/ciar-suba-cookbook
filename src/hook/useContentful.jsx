@@ -11,7 +11,7 @@ const useContentful = () => {
   const getReceipes = async() => {
     try{
       const entries = await client.getEntries({
-        content_type:"cookbook",
+        content_type:"recipes", // CHANGED THIS FROM 'cookbook' to 'recipe';
         select: "fields",
         order: "fields.title",
         })
