@@ -5,7 +5,7 @@ const RecipeList  = ({ recipe }) => {
 
     return (
     <div className='recipesDiv'>
-        <h1>View our Cookbook Below:</h1>
+        <h1>Explore Our Recipes Below:</h1>
 
         <ul className='listOfRecipes'>
 
@@ -19,14 +19,14 @@ const RecipeList  = ({ recipe }) => {
 
                         <div className="recipeInfo">
                             <h3>{element.title}</h3>
-                            <h4>Some more information about the recipe</h4>
+                            <h4>{element.description}</h4>
                         </div>
 
                         </div>
 
 
                         <div className="bottomText">
-                            <h5>Prep Time: {element.preperationTime}25min. ⏱️</h5>
+                            <h5>{element.preperationTime}25min. ⏱️</h5>
                             <h6>Click for Recipe    ▸</h6>
                         </div>
                 
