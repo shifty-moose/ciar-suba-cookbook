@@ -11,7 +11,7 @@ const useContentful = () => {
   const getReceipes = async() => {
     try{
       const entries = await client.getEntries({
-        content_type:"cookbook",
+        content_type:"recipes",
         select: "fields",
         order: "fields.title",
         })
@@ -29,7 +29,40 @@ const useContentful = () => {
       console.error(`Error fetching authors:${error}`)
     }
   }
-  return { getReceipes } 
+
+  const getSingleReceipe = async(recipeId) => {
+    try{
+      console.log(recipeId)
+      const intNum = parseInt(recipeId);
+      const entries = await client.getEntries({
+        content_type:"recipes",
+        select: "fields",
+        'fields.receipeId': intNum,
+        limit: 1,
+      })
+
+      console.log(entries.items)
+  
+      if (entries.items.length > 0) {
+        const item = entries.items[0];
+        const picture = item.fields.picture.fields;
+        const sanitizedEntry = {
+          ...item.fields,
+          picture
+        }
+        return sanitizedEntry;
+      } else {
+        return null;
+      }
+  
+    } catch(error) {
+      console.error(`Error fetching recipe: ${error}`);
+    }
+  }
+
+
+
+  return { getReceipes, getSingleReceipe } 
 }
 
 export default useContentful;
