@@ -57,15 +57,11 @@ h5 {
     padding: 0.6rem 0rem;
 }
 
-
-
 .card:hover {
     transform: scale(1.05);
     transition: transform 0.5s;
     cursor: pointer;
 }
-
-
 
 .heroCards {
     width: 100%;
