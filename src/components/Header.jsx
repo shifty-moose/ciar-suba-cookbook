@@ -12,16 +12,19 @@ const Header = () => {
         <img src={logo} alt='logo' className='logo' />
       </Link>
       <nav>
+    
         <NavLink
-          to="#"
+          to="/2"
           style={({isActive}) => isActive ? activeStyles : null}>
           Link #1
         </NavLink>
+
         <NavLink
          to="#"
          style={({isActive}) => isActive ? activeStyles : null}>
           Link #2
-        </NavLink>      
+        </NavLink>
+
       </nav>
     </header>
   );

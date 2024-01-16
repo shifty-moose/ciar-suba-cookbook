@@ -1,9 +1,9 @@
 import React from 'react';
-import Home from './view/Home.jsx';
+import Home, { loader as receipesLoader } from './view/Home.jsx';
 import Layout from './components/Layout.jsx';
 import Error from './components/Error.jsx';
 import './index.css';
-import { loader as receipesLoader } from "./view/Home";
+import ReceipeDetail, { loader as singleReceipesLoader } from './view/receipeDetail';
 
 import ReactDOM from 'react-dom/client';
 import {
@@ -20,6 +20,12 @@ const router = createBrowserRouter(createRoutesFromElements(
       element={<Home />}
       loader={receipesLoader} 
       errorElement={<Error />}/>
+    {/* FOR TEST PURPOSES*/}
+    <Route
+     path="/:id"
+     element={<ReceipeDetail />}
+     loader={singleReceipesLoader} 
+     errorElement={<Error />}/>
   </Route>
 ))
 
