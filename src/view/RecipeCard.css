@@ -1,0 +1,84 @@
+.cardSection {
+    padding: 2rem;
+    padding-top: 4rem;
+}
+
+.heroImg {
+    width: 100%;
+    min-height: 400px;
+    max-height: 500px;
+    object-fit: cover;
+    margin: 0;
+    border-top: 16px solid rgb(227, 7, 19);
+    border-bottom: 16px solid rgb(11, 151, 32);
+}
+
+img {
+    width: 350px;
+    height: 350px;
+    object-fit: cover;
+    /* margin: 1rem 1rem 0rem 1rem; */
+    border-radius: 6px 6px 0px 0px;
+}
+
+h1 {    
+    text-align: center;
+    font-weight: 900;
+    padding: 0;
+    margin: 0;
+    color: rgb(52, 52, 52);
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+h3 {
+    text-align: left;
+    margin: 0.5rem 1rem 0.5rem 1rem;
+    font-weight: 700;
+    color: rgb(188, 1, 1);
+    margin-bottom: 0.2rem;
+}
+
+h4, h5 {
+    padding: 0;
+    margin: 0;
+    margin: 0rem 1rem;
+
+}
+
+h4 {
+    color: rgb(71, 71, 71);
+}
+
+h5 {
+    text-align: right;
+    padding: 0.6rem 0rem;
+}
+
+
+
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.5s;
+    cursor: pointer;
+}
+
+
+
+.heroCards {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 4rem;
+    margin-top: 0rem;
+}
+
+.card {
+    transition: transform 0.5s;
+    padding: 0rem;
+    background-color: rgb(249, 236, 208);
+    margin: 1.4rem;
+    border-radius: 6px;
+    
+}

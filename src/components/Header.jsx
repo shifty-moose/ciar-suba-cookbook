@@ -1,4 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
+import logo from  '../assets/italianlogo.png';
 const Header = () => {
   const activeStyles = {
     fontWeight: "bold",
@@ -7,18 +8,23 @@ const Header = () => {
 
   return (
     <header>
-      <Link to="/" className="nav-logo">LOGO COMES HERE</Link>
+      <Link to="/" className="nav-logo">
+        <img src={logo} alt='logo' className='logo' />
+      </Link>
       <nav>
+    
         <NavLink
           to="/2"
           style={({isActive}) => isActive ? activeStyles : null}>
-          TEST TO RECEIPE DETAIL
+          Link #1
         </NavLink>
+
         <NavLink
          to="#"
          style={({isActive}) => isActive ? activeStyles : null}>
-          ADD MORE
-        </NavLink>      
+          Link #2
+        </NavLink>
+
       </nav>
     </header>
   );
