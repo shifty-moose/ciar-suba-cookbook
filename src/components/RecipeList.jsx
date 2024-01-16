@@ -1,45 +1,37 @@
 import React from 'react';
-import '../view/RecipeList.css';
+import '../styles/RecipeList.css';
 
-const RecipeList  = ({ recipe }) => {
-
+const RecipeList = ({ recipe }) => {
     return (
-    <div className='recipesDiv'>
-        <h1>Explore Our Recipes Below:</h1>
+        <div className='recipesDiv'>
+            <h1>Explore Our Recipes Below:</h1>
+            <ul className='listOfRecipes'>
+                {recipe.map(element => (
+                    <li key={element.title}>
+                        <div className='recipeListItem'>
 
-        <ul className='listOfRecipes'>
+                            <div className="topText">
 
-            {recipe.map(element => (
-                <li key={element.title}>
-                    <div className='recipeListItem'>
+                                <img src={element.picture.file.url} alt={element.title} />
 
-                        <div className="topText">
+                                <div className="recipeInfo">
+                                    <h3>{element.title}</h3>
+                                    <h4>{element.description}</h4>
+                                </div>
 
-                        <img src={element.picture.file.url} alt={element.title} />
+                            </div>
 
-                        <div className="recipeInfo">
-                            <h3>{element.title}</h3>
-                            <h4>{element.description}</h4>
+                            <div className="bottomText">
+                                <h5>{element.preperationTime}25min. ⏱️</h5>
+                                <h6>Click for Recipe    ▸</h6>
+                            </div>
+
                         </div>
-
-                        </div>
-
-
-                        <div className="bottomText">
-                            <h5>{element.preperationTime}25min. ⏱️</h5>
-                            <h6>Click for Recipe    ▸</h6>
-                        </div>
-                
-                    </div>
-                </li>
-            ))}
-
-        </ul>
-     </div>
+                    </li>
+                ))}
+            </ul>
+        </div>
     )
-
-
 };
-
 
 export default RecipeList;

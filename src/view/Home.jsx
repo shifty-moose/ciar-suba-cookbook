@@ -9,15 +9,9 @@ export function loader() {
 }
 
 function Home() {
-  // https://reactrouter.com/en/main/hooks/use-loader-data
   const receipes = useLoaderData()
-  console.log(receipes)
-  console.log(typeof receipes)
-
   return (
     <>
-      <section>
-      </section>
       <section>
 
         <RecipeCard
