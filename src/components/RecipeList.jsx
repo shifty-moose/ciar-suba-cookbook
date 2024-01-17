@@ -1,12 +1,45 @@
 import React from 'react';
 import '../styles/RecipeList.css';
+import { useSearchParams } from "react-router-dom";
 
 const RecipeList = ({ recipe }) => {
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    const typeFilter = searchParams.get("type");
+
+    const handleFilterClick = (key, value) => {
+        setSearchParams(prevParams => {
+            if(!value) {
+                prevParams.delete(key);
+            } else {
+                prevParams.set(key, value);
+            }
+            return prevParams;
+            })
+        };
+    
+    const filteredRecipes = typeFilter? recipe.filter(item =>
+        item.type === typeFilter) : recipe;
+
     return (
         <div className='recipesDiv'>
             <h1>Explore Our Recipes Below:</h1>
+            <div className='type-filter'>
+                <button onClick={() => handleFilterClick("type", "pasta")}>
+                    Pasta
+                </button>
+                <button onClick={() => handleFilterClick("type", "pizza")}>
+                    Pizza
+                </button>
+                <button onClick={() => handleFilterClick("type", "dessert")}>
+                    Dessert
+                </button>
+                <button onClick={() => handleFilterClick("type", null)}>
+                    Clear
+                </button>
+            </div>
             <ul className='listOfRecipes'>
-                {recipe.map(element => (
+                {filteredRecipes.map(element => (
                     <li key={element.title}>
                         <div className='recipeListItem'>
 

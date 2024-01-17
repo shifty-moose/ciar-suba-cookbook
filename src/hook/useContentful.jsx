@@ -32,7 +32,6 @@ const useContentful = () => {
 
   const getSingleReceipe = async(recipeId) => {
     try{
-      console.log(recipeId)
       const intNum = parseInt(recipeId);
       const entries = await client.getEntries({
         content_type:"recipes",
