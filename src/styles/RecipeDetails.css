@@ -4,64 +4,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.detail-explanation {
-  display: flex;
-  width: 80%;
-  margin-top: 4rem;
-  margin-bottom: 4rem;  
-
-  .detail-ingridients{
-    text-align: right;
-    padding: 0.4rem 2rem;
-    margin-top: 7.7rem;
-    line-height: 2;
-    direction: rtl;
-    background-color: rgb(249, 236, 208);
-  }
-
-  .detail-ingridients li{
-    padding: 0.5rem;
-  }
-
-  .detail-ingridients span {
-    direction: ltr;
-    display: inline-block;
-  }
-  
-  .detail-method{
-    width: auto;
-    height: auto;
-    text-align: left;
-    padding: 1rem 2rem;
-    line-height: 2;
-  }
-
-  .detail-method h3 {
-    text-align: left;
-    padding: 0rem 2rem;
-    margin: 0;
-  }
-
-  .detail-method ol {
-    margin-top: 0;  
-  }
-
-  .detail-method li {
-    padding: 0.5rem;
-  }
-
-  .prep-time-detail{
-    font-size: 1rem;
-    margin-left: 2rem;
-  }
-}
-
-.detail-ingridients h3 {
-  text-align: right;
-  padding: 0;
-  margin: 0;
+  border-bottom: 16px solid rgb(11, 151, 32);
+  padding-bottom: 6rem;
 }
 
 .detail-section .recipeImg {
@@ -74,14 +18,87 @@
 }
 
 .detail-section h2 {
-  font-size: 2.4rem;
-  text-align: left;
-  padding: 0;
+  font-size: 2.6rem;
+  padding: 3rem 0rem;
   margin: 0;
-  padding-left: 1.6rem;
-  margin-bottom: 2rem;
   color: rgb(106, 106, 106);
   border-bottom: 2px solid rgb(106, 106, 106);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  align-self: center;
+  width: 50%;  
+  padding-left: 3rem;
+}
+
+.recipeInfoContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  margin-top: 4rem;
+  margin-bottom: 6rem;
+  width: 70%;
+}
+
+.left {
+  height: 100%;
+  margin: 0rem 3rem;
+}
+
+.detail-ingridients{
+  width: 350px;
+  background-color: #f9ecd0;
+  padding-right: 2rem;
+  text-align: right;
+}
+
+.detail-ingridients h3 {
+  padding: 1rem 2rem;
+  margin: 0;
+  text-align: right;
+  font-size: 1.5rem;
+}
+
+.detail-ingridients ul {
+  padding: 0rem 1rem 4rem 3rem;
+  margin: 0;
+  text-align: right;
+  direction: ltr;
+}
+
+.detail-ingridients li {
+  padding: 0.8rem;
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.right ol {
+  padding: 0;
+  margin: 0;
+}
+
+.detail-explanation {
+  display: flex;
+}
+
+.detail-method h3 {
+  padding: 1rem 2rem;
+  margin: 0;
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.detail-method ol {
+  padding: 0rem 1rem 4rem 3rem;
+  margin: 0;
+  text-align: left;
+  direction: ltr;
+}
+
+.detail-method li {
+  padding: 0.8rem;
+  margin: 0;
+  font-size: 1.2rem;
 }
 
 .home-btn{
@@ -93,4 +110,112 @@
   color: rgb(106, 106, 106);
   font-family: Playfair Display;
   font-weight: bold;
+  cursor: pointer;
+}
+
+
+@media screen and (max-width: 600px) {
+  .recipeInfoContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .detail-section h2 {
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    width: 100%;
+  }
+
+  .left {
+    margin: 0;
+    padding: 0;
+  }
+
+  .left ul {
+    padding: 0;
+    margin: 0;
+  }
+  .detail-ingridients{
+    width: auto;
+    margin: 1.4rem;
+    padding: 0;
+    text-align: left;
+  }
+
+  .detail-ingridients h3 {
+    padding: 1rem 2rem;
+    margin: 0;
+    text-align: left;
+    font-size: 1.5rem;
+  }
+
+  .detail-ingridients ul {
+    padding: 0rem 1rem 0rem 3rem;
+    margin: 0;
+    text-align: left;
+    direction: ltr;
+  }
+}
+
+
+@media screen and (min-width: 950px) and (max-width: 1200px) {
+  .recipeInfoContainer {
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .detail-section h2 {
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    width: 100%;
+    padding-left: 6rem;
+  }
+
+  .left {
+    margin: 0;
+    padding: 0;
+    padding-left: 2rem;
+  }
+
+  .right {
+    padding-right: 4rem;
+    margin-top: 1rem;
+  }
+
+  .left ul {
+    padding: 0;
+    margin: 0;
+  }
+  .detail-ingridients{
+    width: auto;
+    margin: 1.4rem;
+    padding: 0;
+    text-align: left;
+    width: 350px;
+    margin-left: 3rem;
+  }
+
+  .detail-ingridients h3 {
+    padding: 1rem 2rem;
+    margin: 0;
+    text-align: left;
+    font-size: 1.5rem;
+  }
+
+  .detail-ingridients ul {
+    padding: 0rem 1rem 0rem 3rem;
+    margin: 0;
+    text-align: left;
+    direction: ltr;
+  }
+
+  .right h3 {
+    padding: 1rem 2rem;
+  }
 }
