@@ -1,6 +1,5 @@
 import { useLoaderData } from "react-router-dom";
 import useContentful from "../hook/useContentful";
-import transition from "../transition";
 import { useState, useEffect } from 'react';
 
 

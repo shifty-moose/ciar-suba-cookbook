@@ -167,10 +167,10 @@ footer {
 
 @keyframes l1 {
   0%,
-  100%{transform:translate(-30px,-30px);box-shadow:  0     0    #ffffff, 0     0    #0d7301}
-  40% {transform:translate( 30px, 30px);box-shadow: -10px -10px #ffffff,-20px -20px #0d7301}
-  50% {transform:translate( 30px, 30px);box-shadow:  0     0    #ffffff, 0     0    #0d7301}
-  90% {transform:translate(-30px,-30px);box-shadow:  10px  10px #f5f4f4, 20px  20px #0d7301}
+  100%{transform:translate(-30px,-30px);box-shadow:  0     0    #ffffff, 0     0    #109800}
+  40% {transform:translate( 30px, 30px);box-shadow: -10px -10px #ffffff,-20px -20px #109800}
+  50% {transform:translate( 30px, 30px);box-shadow:  0     0    #ffffff, 0     0    #109800}
+  90% {transform:translate(-30px,-30px);box-shadow:  10px  10px #f5f4f4, 20px  20px #109800}
 }
 
 
