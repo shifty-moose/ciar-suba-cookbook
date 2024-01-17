@@ -16,16 +16,31 @@ const RecipeCard = ({ recipe }) => {
 
     const navigate = useNavigate();
 
-    return (
-        <>
-            <img
-                src='https://recipes.net/wp-content/uploads/2023/09/italian-dinner-party-1695110507.jpg'
-                alt='A picture of Italian dinner party'
-                className='heroImg'
-            />
+    const scrollToTop = (elementId) => {
 
-            <div className='cardSection'>
-                <h1>Most Popular Recipes Today:</h1>
+        document.querySelector(".cardSection").setAttribute('style', 'opacity: 0; transition: opacity 0.3s;')
+        document.querySelector(".heroImg").setAttribute('style', 'opacity: 0; transition: opacity 0.3s;')
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+        setTimeout(() => {
+
+            navigate(`/${elementId}`);
+        }, 300);
+
+    };
+    
+
+    return (
+        <div className="cardSectionContainer">
+
+        <img src='https://recipes.net/wp-content/uploads/2023/09/italian-dinner-party-1695110507.jpg' alt='' className='heroImg' />
+
+        <div className='cardSection'>
+            <h1>Most Popular Recipes Today:</h1>
 
             <div className='heroCards'>
 
@@ -55,9 +70,10 @@ const RecipeCard = ({ recipe }) => {
                     </div>
                 ))}
 
-                </div>
             </div>
-        </>
+        </div>
+
+    </div>
     );
 };
 
