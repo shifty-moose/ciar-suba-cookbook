@@ -26,8 +26,6 @@ function Home() {
       </div>
     );
   };
-
-  // https://reactrouter.com/en/main/hooks/use-loader-data  
   
   return (
     <>

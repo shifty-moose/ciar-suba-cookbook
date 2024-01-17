@@ -1,13 +1,29 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import '../view/RecipeList.css';
 import lionbannerpng from '../assets/lionbanner.png';
 import lowerbanner from '../assets/cookbookbanner.png';
 
 const RecipeList  = ({ recipe }) => {
 
-    const navigate = useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
+    const typeFilter = searchParams.get("type");
 
+    const handleFilterClick = (key, value) => {
+        setSearchParams(prevParams => {
+            if(!value) {
+                prevParams.delete(key);
+            } else {
+                prevParams.set(key, value);
+            }
+            return prevParams;
+            })
+        };
+    
+    const filteredRecipes = typeFilter? recipe.filter(item =>
+        item.type === typeFilter) : recipe;
+
+    const navigate = useNavigate();
     const scrollToTop = (elementId) => {
 
         document.querySelector(".cardSection").setAttribute('style', 'opacity: 0; transition: opacity 0.5s;')
@@ -25,20 +41,32 @@ const RecipeList  = ({ recipe }) => {
     };
     
 
-
     return (
+
     <div className='recipesDiv'>
-
-
 
         <img src={lionbannerpng} alt="lionbanner" className="lionbanner" />
 
         <h1>Explore Our Entire Collection Below:</h1>
 
+        <div className='type-filter'>
+            <button onClick={() => handleFilterClick("type", "pasta")}>
+                Pasta
+            </button>
+            <button onClick={() => handleFilterClick("type", "pizza")}>
+                Pizza
+            </button>
+            <button onClick={() => handleFilterClick("type", "dessert")}>
+                Dessert
+            </button>
+            <button onClick={() => handleFilterClick("type", null)}>
+                Clear
+            </button>
+        </div>
 
         <ul className='listOfRecipes'>
 
-            {recipe.map(element => (
+            {filteredRecipes.map(element => (
                 <li key={element.title}
                     onClick={() => {
                         scrollToTop(element.receipeId);
