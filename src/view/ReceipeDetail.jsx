@@ -1,5 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import useContentful from "../hook/useContentful";
+import { useState, useEffect } from 'react';
+
 
 export async function loader({ params }) {
   const { getSingleReceipe } = useContentful();
@@ -8,37 +10,59 @@ export async function loader({ params }) {
 }
 
 const ReceipeDetail = () => {
+  const [loading, setLoading] = useState(true);
   const receipe = useLoaderData();
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setLoading(false);
+    }, 1200);
+  
+    return () => clearTimeout(timeoutId);
+  }, []);
+  
+  if (loading) {
+    return (
+      <div className="loadingDiv">
+        <div className="loaderAnimation"></div>
+      </div>
+    );
+  };
+
 
   const { title, method , ingredients, picture} = receipe;
   return (
+
     <section className="detail-section">
-      <h2>{title}</h2>
+
       <img
+      className="recipeImg"
        src={picture.file.url}
-       als="picture of delicious food"
-       width="500px"
+       alt="picture of delicious food"
        height="auto"/>
+
        <div className="detail-explanation">
         <div className="detail-ingridients">
-          <h3>Ingridients</h3>
+          <h3>  Ingredients</h3>
           <ul>
             {ingredients.map((ingredient, index) => (
-              <li key={index}>{ingredient}</li>
+              <li key={index}><span>{ingredient}</span></li>
             ))}
           </ul>
         </div>
         <div className="detail-method">
-        <h3>How to cook</h3>
-          <ul>
+        <h2>{title}</h2>
+
+        <h3>Method:</h3>
+          <ol>
             {method.map((step, index) => (
               <li key={index}>{step}</li>
             ))}
-          </ul>
+          </ol>
         </div>
       </div>
     </section>
   )
 }
 
-export default ReceipeDetail
+export default ReceipeDetail;

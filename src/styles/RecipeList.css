@@ -3,6 +3,8 @@
     background-color: rgb(249, 236, 208);
     display: flex;
     flex-direction: column;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
     /* background-color: #f9ecd0;
     opacity: 1;
     background-image:  linear-gradient(135deg, #f1e3c6 25%, transparent 25%), linear-gradient(225deg, #f1e3c6 25%, transparent 25%), linear-gradient(45deg, #f1e3c6 25%, transparent 25%), linear-gradient(315deg, #f1e3c6 25%, #f9ecd0 25%);
@@ -12,27 +14,42 @@
 }
 
 .recipesDiv h1 {
-    padding-top: 6rem;
     color: rgb(81, 50, 1);
     font-size: 2rem;
-    border-top: 16px solid rgb(11, 151, 32);
+    /* border-top: 16px solid rgb(11, 151, 32); */
+    padding: 0;
+    margin: 0;
+    padding-bottom: 1.5rem;
+    text-decoration: underline;
+}
+
+.lionbanner {
+    height: 80px;
+    width: auto;
+    margin: auto;
+}
+
+.lowerBanner {
+    height: 100px;
+    width: auto;
+    margin: auto;
+    padding: 0;
 }
 
 .listOfRecipes {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
+    margin: 0rem 3rem;
+    padding: 0rem 0rem;
     list-style: none;
-    padding-top: 0rem;
-    padding-bottom: 6rem;
-    padding: 0rem 1.2rem 6rem 1.2rem;
     justify-content: center;
+    border-radius: 4px;
 }
 
+
 .recipeListItem {
-    width: 250px;
+    width: 230px;
     height: 350px;
     display: flex;
     flex-direction: column;
@@ -78,6 +95,11 @@
     padding: 0.6rem 0rem;
     font-size: 1rem;
     text-decoration: underline;
+}
+
+.recipeInfo h4 {
+    color: rgb(81, 50, 1);
+    font-weight: 500;
 }
 
 .bottomText h5 {
