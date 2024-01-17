@@ -56,7 +56,6 @@
     font-size: 1rem;
     margin-left: 2rem;
   }
-
 }
 
 .detail-ingridients h3 {
@@ -83,4 +82,15 @@
   margin-bottom: 2rem;
   color: rgb(106, 106, 106);
   border-bottom: 2px solid rgb(106, 106, 106);
+}
+
+.home-btn{
+  position: fixed;
+  right: 2.2rem;
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: rgb(106, 106, 106);
+  font-family: Playfair Display;
+  font-weight: bold;
 }

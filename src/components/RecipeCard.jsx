@@ -31,7 +31,7 @@ const RecipeCard = ({ recipes }) => {
         setTimeout(() => {
 
             navigate(`/${elementId}`);
-        }, 300);
+        }, 100);
 
     };
     
