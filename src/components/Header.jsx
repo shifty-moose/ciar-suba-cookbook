@@ -1,6 +1,5 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from  '../assets/italianlogo.png';
-import { useNavigate } from "react-router-dom";
 
 
 const Header = () => {

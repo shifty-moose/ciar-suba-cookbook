@@ -39,8 +39,6 @@ const useContentful = () => {
         'fields.receipeId': intNum,
         limit: 1,
       })
-
-      console.log(entries.items)
   
       if (entries.items.length > 0) {
         const item = entries.items[0];
@@ -58,8 +56,6 @@ const useContentful = () => {
       console.error(`Error fetching recipe: ${error}`);
     }
   }
-
-
 
   return { getReceipes, getSingleReceipe } 
 }

@@ -1,6 +1,5 @@
-import { useLoaderData } from "react-router-dom";
-import useContentful from "../hook/useContentful";
-import { useState, useEffect } from 'react';
+import { useLoaderData, useNavigate } from "react-router-dom";
+import useContentful from "../hooks/useContentful";
 import '../styles/RecipeDetails.css';
 
 
@@ -11,35 +10,19 @@ export async function loader({ params }) {
 }
 
 const ReceipeDetail = () => {
-  const [loading, setLoading] = useState(true);
   const receipe = useLoaderData();
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setLoading(false);
-    }, 1200);
-  
-    return () => clearTimeout(timeoutId);
-  }, []);
-  
-  if (loading) {
-    return (
-      <div className="loadingDiv">
-        <div className="loaderAnimation"></div>
-      </div>
-    );
-  };
-
+  const navigate = useNavigate();
   const { title, method , ingredients, picture, preperationTime} = receipe;
+
   return (
 
     <section className="detail-section">
 
       <img
-      className="recipeImg"
-       src={picture.file.url}
-       alt="picture of delicious food"
-       height="auto"/>
+        className="recipeImg"
+        src={picture.file.url}
+        alt="picture of delicious food"
+        height="auto"/>
 
        <div className="detail-explanation">
         <div className="detail-ingridients">
@@ -60,6 +43,12 @@ const ReceipeDetail = () => {
           </ol>
         </div>
       </div>
+      <button 
+        className="home-btn"
+        onClick={() => navigate("/")}
+      >
+          {"<"} Home
+      </button>
     </section>
   )
 }

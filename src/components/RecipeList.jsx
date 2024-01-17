@@ -53,7 +53,7 @@ const RecipeList = ({ recipes }) => {
             <div className='type-filter'>
                 {filterTypes.map(item => (
                     <button
-                        key={item.filterKey}
+                        key={item.filterValue}
                         onClick={() => handleFilterClick(item.filterKey, item.filterValue)}>
                         {item.label}
                     </button>
