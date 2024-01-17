@@ -3,10 +3,6 @@ import { useNavigate } from "react-router-dom";
 import '../styles/RecipeCard.css';
 
 const RecipeCard = ({ recipe }) => {
-<<<<<<< HEAD
-=======
-
->>>>>>> cjBranch
     let randomRecipeSelection = [];
 
     for (let i = 0; i < 3; i++) {
@@ -18,7 +14,6 @@ const RecipeCard = ({ recipe }) => {
         };
     };
 
-<<<<<<< HEAD
     const navigate = useNavigate();
 
     return (
@@ -28,56 +23,10 @@ const RecipeCard = ({ recipe }) => {
                 alt='A picture of Italian dinner party'
                 className='heroImg'
             />
-=======
-    const scrollToTop = (elementId) => {
-
-        document.querySelector(".cardSection").setAttribute('style', 'opacity: 0; transition: opacity 0.3s;')
-        document.querySelector(".heroImg").setAttribute('style', 'opacity: 0; transition: opacity 0.3s;')
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-        setTimeout(() => {
-
-            navigate(`/${elementId}`);
-        }, 300);
-
-    };
-    
-    const navigate = useNavigate();
-
-    return (
-        <div className="cardSectionContainer">
-
-        <img src='https://recipes.net/wp-content/uploads/2023/09/italian-dinner-party-1695110507.jpg' alt='' className='heroImg' />
->>>>>>> cjBranch
 
             <div className='cardSection'>
                 <h1>Most Popular Recipes Today:</h1>
 
-<<<<<<< HEAD
-                <div className='heroCards'>
-                    {randomRecipeSelection.map(element => (
-                        <div
-                            className="card"
-                            key={element.title}
-                            onClick={() => navigate(`/${element.receipeId}`)}
-                        >
-                            <img
-                                src={element.picture.file.url}
-                                alt={element.title}
-                                className="cardImg"
-                            />
-                            <div className="card-body">
-                                <h3 className="card-title">{element.title}</h3>
-                                <h4 className="card-subtitle">{element.subheading}</h4>
-                                <h5 className="card-preptime">{element.preperationTime}25min. ⏱️</h5>
-                            </div>
-                        </div>
-                    ))}
-=======
             <div className='heroCards'>
 
                 {randomRecipeSelection.map(element => (
@@ -105,17 +54,10 @@ const RecipeCard = ({ recipe }) => {
 
                     </div>
                 ))}
->>>>>>> cjBranch
 
                 </div>
             </div>
-<<<<<<< HEAD
         </>
-=======
-        </div>
-
-    </div>
->>>>>>> cjBranch
     );
 };
 

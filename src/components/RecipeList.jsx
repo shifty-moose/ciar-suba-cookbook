@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate, useSearchParams } from "react-router-dom";
-import '../view/RecipeList.css';
+import '../styles/RecipeList.css';
 import lionbannerpng from '../assets/lionbanner.png';
 import lowerbanner from '../assets/cookbookbanner.png';
 
