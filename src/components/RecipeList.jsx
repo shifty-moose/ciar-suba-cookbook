@@ -23,7 +23,7 @@ const RecipeList = ({ recipes, scrollToTop }) => {
 
     const filteredRecipes = typeFilter ? recipes.filter(item =>
         item.type === typeFilter) : recipes;
-
+ 
 
     return (
 
@@ -37,6 +37,7 @@ const RecipeList = ({ recipes, scrollToTop }) => {
                 {filterTypes.map(item => (
                     <button
                         key={item.filterValue}
+                        className='filterButton'
                         onClick={() => handleFilterClick(item.filterKey, item.filterValue)}>
                         {item.label}
                     </button>
