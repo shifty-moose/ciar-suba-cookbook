@@ -78,9 +78,22 @@ h5 {
     background-color: rgb(249, 236, 208);
     margin: 1.4rem;
     border-radius: 6px;
-    
 }
 
 .card-body {
     max-width: 320px;
+}
+
+.type-filter{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+
+    & button{
+        border-radius: 5px;
+        border-color: none;
+        background-color:#513200;
+        padding: .5rem 1rem;
+        color: white;
+    }
 }
