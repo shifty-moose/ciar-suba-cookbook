@@ -47,7 +47,6 @@
     border-radius: 4px;
 }
 
-
 .recipeListItem {
     width: 230px;
     height: 350px;
@@ -59,9 +58,7 @@
     border-bottom: 4px solid rgb(149, 116, 61);
     transition: 0.4s;
     background-color: rgb(249, 236, 208);
-
 }
-
 
 .recipeListItem:hover {
     background-color: rgb(238, 209, 141);
@@ -121,4 +118,20 @@
     padding: 1rem;
     justify-content: space-between;
     align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+    .listOfRecipes {
+       margin: 2rem;
+    }
+    .recipeListItem {
+        width: auto;
+    }
+
+    .lowerBanner
+    {
+        height: auto;
+        width: 70%;
+    }
+
 }
