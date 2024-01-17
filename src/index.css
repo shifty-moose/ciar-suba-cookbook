@@ -61,11 +61,12 @@ ul, li {
 footer {
   background-color: #161616;
   color: #AAAAAA;
-  height: 5rem;
+  height: 8rem;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: auto;
+  border-top: 16px solid rgb(227, 7, 19);
 }
 
 /* THE LOADER AND ANIMATIONS */
