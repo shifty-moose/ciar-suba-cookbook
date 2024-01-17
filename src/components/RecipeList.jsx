@@ -3,24 +3,25 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import '../styles/RecipeList.css';
 import lionbannerpng from '../assets/lionbanner.png';
 import lowerbanner from '../assets/cookbookbanner.png';
+import { filterTypes } from "../constants/index";
 
-const RecipeList  = ({ recipes }) => {
+const RecipeList = ({ recipes }) => {
 
     const [searchParams, setSearchParams] = useSearchParams();
     const typeFilter = searchParams.get("type");
 
     const handleFilterClick = (key, value) => {
         setSearchParams(prevParams => {
-            if(!value) {
+            if (!value) {
                 prevParams.delete(key);
             } else {
                 prevParams.set(key, value);
             }
             return prevParams;
-            })
-        };
-    
-    const filteredRecipes = typeFilter? recipes.filter(item =>
+        })
+    };
+
+    const filteredRecipes = typeFilter ? recipes.filter(item =>
         item.type === typeFilter) : recipes;
 
     const navigate = useNavigate();
@@ -39,39 +40,34 @@ const RecipeList  = ({ recipes }) => {
             navigate(`/${elementId}`);
         }, 600);
     };
-    
+
 
     return (
 
-    <div className='recipesDiv'>
+        <div className='recipesDiv'>
 
-        <img src={lionbannerpng} alt="lionbanner" className="lionbanner" />
+            <img src={lionbannerpng} alt="lionbanner" className="lionbanner" />
 
-        <h1>Explore Our Entire Collection Below:</h1>
+            <h1>Explore Our Entire Collection Below:</h1>
 
-        <div className='type-filter'>
-            <button onClick={() => handleFilterClick("type", "pasta")}>
-                Pasta
-            </button>
-            <button onClick={() => handleFilterClick("type", "pizza")}>
-                Pizza
-            </button>
-            <button onClick={() => handleFilterClick("type", "dessert")}>
-                Dessert
-            </button>
-            <button onClick={() => handleFilterClick("type", null)}>
-                Clear
-            </button>
-        </div>
+            <div className='type-filter'>
+                {filterTypes.map(item => (
+                    <button
+                        key={item.filterKey}
+                        onClick={() => handleFilterClick(item.filterKey, item.filterValue)}>
+                        {item.label}
+                    </button>
+                ))}
+            </div>
 
-        <ul className='listOfRecipes'>
+            <ul className='listOfRecipes'>
 
-            {filteredRecipes.map(element => (
-                <li key={element.title}
-                    onClick={() => {
-                        scrollToTop(element.receipeId);
-                    }}>
-                    <div className='recipeListItem'>
+                {filteredRecipes.map(element => (
+                    <li key={element.title}
+                        onClick={() => {
+                            scrollToTop(element.receipeId);
+                        }}>
+                        <div className='recipeListItem'>
 
                             <div className="topText">
 
@@ -82,23 +78,23 @@ const RecipeList  = ({ recipes }) => {
                                     <h4>{element.description}</h4>
                                 </div>
 
+                            </div>
+
+
+                            <div className="bottomText">
+                                <h5>{element.preperationTime}25min. ⏱️</h5>
+                                <h6>Click for Recipe    ▸</h6>
+                            </div>
+
                         </div>
+                    </li>
+                ))}
 
+            </ul>
 
-                        <div className="bottomText">
-                            <h5>{element.preperationTime}25min. ⏱️</h5>
-                            <h6>Click for Recipe    ▸</h6>
-                        </div>
-                
-                    </div>
-                </li>
-            ))}
+            <img src={lowerbanner} alt="lowerBanner" className="lowerBanner" />
 
-        </ul>
-
-        <img src={lowerbanner} alt="lowerBanner" className="lowerBanner" />
-
-     </div>
+        </div>
     )
 };
 
