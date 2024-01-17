@@ -1,6 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import useContentful from "../hook/useContentful";
 import { useState, useEffect } from 'react';
+import '../styles/RecipeDetails.css';
 
 
 export async function loader({ params }) {
@@ -29,8 +30,7 @@ const ReceipeDetail = () => {
     );
   };
 
-
-  const { title, method , ingredients, picture} = receipe;
+  const { title, method , ingredients, picture, preperationTime} = receipe;
   return (
 
     <section className="detail-section">
@@ -51,8 +51,7 @@ const ReceipeDetail = () => {
           </ul>
         </div>
         <div className="detail-method">
-        <h2>{title}</h2>
-
+        <h2>{title} <span className="prep-time-detail">{preperationTime} 25min. ⏱️</span></h2>
         <h3>Method:</h3>
           <ol>
             {method.map((step, index) => (

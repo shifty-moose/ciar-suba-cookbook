@@ -32,10 +32,10 @@ function Home() {
       <section>
 
         <RecipeCard
-        recipe={receipes} />
+        recipes={receipes} />
 
         <RecipeList
-        recipe={receipes} />
+        recipes={receipes} />
 
       </section>  
     </>

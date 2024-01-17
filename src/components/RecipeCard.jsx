@@ -2,17 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from "react-router-dom";
 import '../styles/RecipeCard.css';
 
-const RecipeCard = ({ recipe }) => {
-    let randomRecipeSelection = [];
+const RecipeCard = ({ recipes }) => {
 
-    for (let i = 0; i < 3; i++) {
-        const randomRecipe = recipe[Math.floor(Math.random() * recipe.length)];
-        if (!randomRecipeSelection.includes(randomRecipe)) {
-            randomRecipeSelection.push(randomRecipe);
-        } else {
-            i--;
-        };
+    const [randomRecipeSelection, setRandomRecipeSelection] = useState([]);
+
+    const pickRandomRecipes = (array, numRecipes) => {
+        const newArray = [...array];
+        newArray.sort(() => Math.random() - 0.5);
+        setRandomRecipeSelection(newArray.slice(0, numRecipes));
     };
+
+    useEffect(() => {
+        pickRandomRecipes(recipes, 3);
+    }, [])
 
     const navigate = useNavigate();
 
