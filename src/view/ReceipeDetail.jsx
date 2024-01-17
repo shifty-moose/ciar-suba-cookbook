@@ -11,24 +11,7 @@ export async function loader({ params }) {
 }
 
 const ReceipeDetail = () => {
-  const [loading, setLoading] = useState(true);
   const receipe = useLoaderData();
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setLoading(false);
-    }, 1200);
-  
-    return () => clearTimeout(timeoutId);
-  }, []);
-  
-  if (loading) {
-    return (
-      <div className="loadingDiv">
-        <div className="loaderAnimation"></div>
-      </div>
-    );
-  };
 
   const { title, method , ingredients, picture, preperationTime} = receipe;
   return (
@@ -43,7 +26,7 @@ const ReceipeDetail = () => {
 
        <div className="detail-explanation">
         <div className="detail-ingridients">
-          <h3>  Ingredients</h3>
+          <h3>Ingredients</h3>
           <ul>
             {ingredients.map((ingredient, index) => (
               <li key={index}><span>{ingredient}</span></li>

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from "react-router-dom";
 import '../styles/RecipeCard.css';
 
-const RecipeCard = ({ recipes }) => {
+const RecipeCard = ({ recipes, scrollToTop }) => {
 
     const [randomRecipeSelection, setRandomRecipeSelection] = useState([]);
 
@@ -11,30 +11,10 @@ const RecipeCard = ({ recipes }) => {
         newArray.sort(() => Math.random() - 0.5);
         setRandomRecipeSelection(newArray.slice(0, numRecipes));
     };
-
     useEffect(() => {
         pickRandomRecipes(recipes, 3);
     }, [])
 
-    const navigate = useNavigate();
-
-    const scrollToTop = (elementId) => {
-
-        document.querySelector(".cardSection").setAttribute('style', 'opacity: 0; transition: opacity 0.3s;')
-        document.querySelector(".heroImg").setAttribute('style', 'opacity: 0; transition: opacity 0.3s;')
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-        setTimeout(() => {
-
-            navigate(`/${elementId}`);
-        }, 300);
-
-    };
-    
 
     return (
         <div className="cardSectionContainer">
