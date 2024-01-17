@@ -1,7 +1,8 @@
 import useContentful from '../hook/useContentful';
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import RecipeCard from '../components/RecipeCard';
 import RecipeList from '../components/RecipeList';
+import React, { useState, useEffect } from 'react';
 
 export function loader() {
   const { getReceipes } = useContentful();
@@ -9,11 +10,25 @@ export function loader() {
 }
 
 function Home() {
-  // https://reactrouter.com/en/main/hooks/use-loader-data
   const receipes = useLoaderData()
-  console.log(receipes)
-  console.log(typeof receipes)
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000); 
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="loadingDiv">
+        <div className="loaderAnimation"></div>
+      </div>
+    );
+  };
+
+  // https://reactrouter.com/en/main/hooks/use-loader-data  
+  
   return (
     <>
       <section>
