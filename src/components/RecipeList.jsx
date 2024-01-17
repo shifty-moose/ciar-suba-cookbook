@@ -4,7 +4,7 @@ import '../styles/RecipeList.css';
 import lionbannerpng from '../assets/lionbanner.png';
 import lowerbanner from '../assets/cookbookbanner.png';
 
-const RecipeList  = ({ recipe }) => {
+const RecipeList  = ({ recipes }) => {
 
     const [searchParams, setSearchParams] = useSearchParams();
     const typeFilter = searchParams.get("type");
@@ -20,8 +20,8 @@ const RecipeList  = ({ recipe }) => {
             })
         };
     
-    const filteredRecipes = typeFilter? recipe.filter(item =>
-        item.type === typeFilter) : recipe;
+    const filteredRecipes = typeFilter? recipes.filter(item =>
+        item.type === typeFilter) : recipes;
 
     const navigate = useNavigate();
     const scrollToTop = (elementId) => {
