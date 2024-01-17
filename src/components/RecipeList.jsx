@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { useNavigate, useSearchParams } from "react-router-dom";
 import '../styles/RecipeList.css';
 import lionbannerpng from '../assets/lionbanner.png';
 import lowerbanner from '../assets/cookbookbanner.png';
 import { filterTypes } from "../constants/index";
 
-const RecipeList = ({ recipes }) => {
+const RecipeList = ({ recipes, scrollToTop }) => {
 
     const [searchParams, setSearchParams] = useSearchParams();
     const typeFilter = searchParams.get("type");
@@ -23,23 +23,6 @@ const RecipeList = ({ recipes }) => {
 
     const filteredRecipes = typeFilter ? recipes.filter(item =>
         item.type === typeFilter) : recipes;
-
-    const navigate = useNavigate();
-    const scrollToTop = (elementId) => {
-
-        document.querySelector(".cardSection").setAttribute('style', 'opacity: 0; transition: opacity 0.5s;')
-        document.querySelector(".heroImg").setAttribute('style', 'opacity: 0; transition: opacity 0.5s;')
-
-        window.scrollTo({
-            top: 0,
-            behavior: "smooth"
-        });
-
-        setTimeout(() => {
-
-            navigate(`/${elementId}`);
-        }, 600);
-    };
 
 
     return (
@@ -63,7 +46,7 @@ const RecipeList = ({ recipes }) => {
             <ul className='listOfRecipes'>
 
                 {filteredRecipes.map(element => (
-                    <li key={element.title}
+                    <li key={element.receipeId}
                         onClick={() => {
                             scrollToTop(element.receipeId);
                         }}>
