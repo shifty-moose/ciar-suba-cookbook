@@ -15,7 +15,6 @@ const RecipeCard = ({ recipes, scrollToTop }) => {
         pickRandomRecipes(recipes, 3);
     }, [])
 
-
     return (
         <div className="cardSectionContainer">
 
