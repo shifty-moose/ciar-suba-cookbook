@@ -24,25 +24,42 @@ const ReceipeDetail = () => {
         alt="picture of delicious food"
         height="auto"/>
 
-       <div className="detail-explanation">
+
+      <h2>{title}</h2>
+
+      <div className="recipeInfoContainer">
+
+      <div className="left">
+
+
         <div className="detail-ingridients">
-          <h3>  Ingredients</h3>
+          <h3> Ingredients</h3>
           <ul>
             {ingredients.map((ingredient, index) => (
-              <li key={index}><span>{ingredient}</span></li>
+              <li key={index}>{ingredient}</li>
             ))}
           </ul>
+          <span className="prep-time-detail">{preperationTime} 25min. ⏱️</span>
         </div>
-        <div className="detail-method">
-        <h2>{title} <span className="prep-time-detail">{preperationTime} 25min. ⏱️</span></h2>
-        <h3>Method:</h3>
-          <ol>
-            {method.map((step, index) => (
-              <li key={index}>{step}</li>
-            ))}
-          </ol>
-        </div>
+
       </div>
+
+      <div className="right">
+
+
+        <div className="detail-method">
+
+          <h3>Method:</h3>
+            <ol>
+              {method.map((step, index) => (
+                <li key={index}>{step}</li>
+              ))}
+            </ol>
+        </div>
+
+      </div>
+      </div>
+
       <button 
         className="home-btn"
         onClick={() => navigate("/")}
