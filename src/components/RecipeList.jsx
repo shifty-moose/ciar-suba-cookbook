@@ -9,21 +9,31 @@ const RecipeList = ({ recipes, scrollToTop }) => {
 
     const [searchParams, setSearchParams] = useSearchParams();
     const typeFilter = searchParams.get("type");
+    const recipesRef = useRef(null);
 
     const handleFilterClick = (key, value) => {
-        setSearchParams(prevParams => {
-            if (!value) {
-                prevParams.delete(key);
-            } else {
-                prevParams.set(key, value);
-            }
-            return prevParams;
-        })
+
+        recipesRef.current.classList.add('hide');
+
+        setTimeout(() => {
+            setSearchParams(prevParams => {
+                if (!value) {
+                    prevParams.delete(key);
+                } else {
+                    prevParams.set(key, value);
+                }
+                return prevParams;
+            })
+        }, 350);
+
+        setTimeout(() => {
+            recipesRef.current.classList.remove('hide');
+        }, 400);
     };
 
     const filteredRecipes = typeFilter ? recipes.filter(item =>
         item.type === typeFilter) : recipes;
-
+ 
 
     return (
 
@@ -37,13 +47,14 @@ const RecipeList = ({ recipes, scrollToTop }) => {
                 {filterTypes.map(item => (
                     <button
                         key={item.filterValue}
+                        className='filterButton'
                         onClick={() => handleFilterClick(item.filterKey, item.filterValue)}>
                         {item.label}
                     </button>
                 ))}
             </div>
 
-            <ul className='listOfRecipes'>
+            <ul className='listOfRecipes' ref={recipesRef}>
 
                 {filteredRecipes.map(element => (
                     <li key={element.receipeId}
