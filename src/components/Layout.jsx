@@ -10,13 +10,13 @@ const Layout = () => {
 
   const navigateToHome = (event) => {
     event.preventDefault();
-    ref.current.setAttribute('style', 'opacity: 0; transition: opacity 0.3s;');
+    ref.current.setAttribute('style', 'opacity: 0; transition: opacity 0.1s;');
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
     navigate(`/`);
-    ref.current.setAttribute('style', 'opacity: 1; transition: opacity 0.3s;');
+    ref.current.setAttribute('style', 'opacity: 1; transition: opacity 0.2s;');
   }
 
   return (
