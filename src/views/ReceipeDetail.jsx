@@ -12,7 +12,7 @@ export async function loader({ params }) {
 const ReceipeDetail = () => {
   const receipe = useLoaderData();
   const navigate = useNavigate();
-  const { title, method , ingredients, picture, preperationTime} = receipe;
+  const { title, method , ingredients, picture, preptimeInMinutes} = receipe;
 
   return (
 
@@ -39,7 +39,7 @@ const ReceipeDetail = () => {
               <li key={index}>{ingredient}</li>
             ))}
           </ul>
-          <span className="prep-time-detail">{preperationTime} 25min. ⏱️</span>
+          <span className="prep-time-detail">{preptimeInMinutes}min. ⏱️</span>
         </div>
 
       </div>
