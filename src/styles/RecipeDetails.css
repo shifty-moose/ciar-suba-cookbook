@@ -19,12 +19,10 @@
 
 .detail-section h2 {
   font-size: 2.6rem;
-  padding: 3rem 0rem;
+  padding: 0rem 0rem;
   margin: 0;
   color: rgb(106, 106, 106);
   border-bottom: 2px solid rgb(106, 106, 106);
-  padding-bottom: 1rem;
-  margin-bottom: 1rem;
   align-self: center;
   width: 50%;  
   padding-left: 3rem;
@@ -101,16 +99,29 @@
   font-size: 1.2rem;
 }
 
+.prep-time-detail h4 {
+  color: rgb(11, 151, 32);
+  font-size: 1rem;
+  padding: 1rem;
+}
+
 .home-btn{
-  right: 2.2rem;
   background-color: transparent;
   border: none;
-  font-size: 1.5rem;
   color: rgb(106, 106, 106);
-  font-family: Playfair Display;
-  font-weight: bold;
   cursor: pointer;
+  color: rgb(227, 7, 19);
+  align-self: flex-end;
+  margin-right: 7rem;
+  margin-left: 7rem;
+  padding-top: 6rem;
+  position: relative;
 }
+
+.home-btn:hover{
+  color: rgb(255, 199, 68);
+}
+
 
 
 @media screen and (max-width: 800px) {
@@ -124,7 +135,7 @@
 
   .detail-section h2 {
     margin-bottom: 1rem;
-    margin-top: 3rem;
+    margin-top: 1rem;
     margin-left: 0;
     margin-right: 0;
     padding: 0;
@@ -161,6 +172,19 @@
     text-align: left;
     direction: ltr;
   }
+
+  .home-btn{
+    background-color: transparent;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    font-size: 0.6em;
+    top: 3rem;
+    right: 1rem;
+    border-radius: 12px;
+    background-color: rgba(255, 249, 236, 0.662);
+    padding: 0.4rem;
+  }
 }
 
 
@@ -175,7 +199,7 @@
 
   .detail-section h2 {
     margin-bottom: 1rem;
-    margin-top: 3rem;
+    margin-top: 1rem;
     width: 100%;
     padding-left: 6rem;
   }

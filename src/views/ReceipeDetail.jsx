@@ -25,7 +25,22 @@ const ReceipeDetail = () => {
         height="auto"/>
 
 
+
+      <button 
+        className="home-btn"
+        onClick={() => navigate("/")}>
+          
+      <span className="material-symbols-outlined">
+      reply
+      </span>
+      <span className="material-symbols-outlined">
+      home
+      </span>
+
+      </button>
+
       <h2>{title}</h2>
+
 
       <div className="recipeInfoContainer">
 
@@ -39,7 +54,7 @@ const ReceipeDetail = () => {
               <li key={index}>{ingredient}</li>
             ))}
           </ul>
-          <span className="prep-time-detail">{preptimeInMinutes}min. ⏱️</span>
+          <span className="prep-time-detail"><h4>{preptimeInMinutes} min. ⏱️</h4></span>
         </div>
 
       </div>
@@ -59,13 +74,21 @@ const ReceipeDetail = () => {
 
       </div>
       </div>
-
+{/* 
       <button 
         className="home-btn"
-        onClick={() => navigate("/")}
-      >
-          {"<"} Home
-      </button>
+        onClick={() => navigate("/")}>
+          
+      <span className="material-symbols-outlined">
+      reply
+      </span>
+      <span className="material-symbols-outlined">
+      home
+      </span>
+
+      </button> */}
+
+
     </section>
   )
 }

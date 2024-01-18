@@ -43,7 +43,7 @@ const RecipeCard = ({ recipes, scrollToTop }) => {
                         
                             <div className='cardBottomText'>
                                 <h6>Click for Recipe    ▸</h6>
-                                <h5 className="card-preptime">{element.preptimeInMinutes}min. ⏱️</h5>
+                                <h5 className="card-preptime">{element.preptimeInMinutes} min. ⏱️</h5>
                             </div>
 
                         </div>
