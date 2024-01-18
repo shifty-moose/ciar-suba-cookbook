@@ -76,7 +76,7 @@ const RecipeList = ({ recipes, scrollToTop }) => {
 
 
                             <div className="bottomText">
-                                <h5>{element.preperationTime}25min. ⏱️</h5>
+                                <h5>{element.preptimeInMinutes}min. ⏱️</h5>
                                 <h6>Click for Recipe    ▸</h6>
                             </div>
 
