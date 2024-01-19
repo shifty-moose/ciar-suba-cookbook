@@ -8,6 +8,9 @@ This application provides a collection of authentic Italian recipes.
 - Detailed instructions and ingredient lists for each recipe
 - Save your favorite recipes for easy access
 
+## Tech Stack
+- React
+
 ## Installation
 
 To install the application, follow these steps:
