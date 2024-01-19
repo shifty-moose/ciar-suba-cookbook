@@ -1,4 +1,3 @@
-import React from 'react';
 import Home, { loader as receipesLoader } from './views/Home';
 import Layout from './components/Layout.jsx';
 import Error from './components/Error.jsx';
@@ -38,9 +37,8 @@ function App() {
   );
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const rootTag = document.getElementById('root');
+const root = ReactDOM.createRoot(rootTag);
 root.render(
-  <React.StrictMode>
     <App />
-  </React.StrictMode>,
 )
