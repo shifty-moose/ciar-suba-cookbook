@@ -1,18 +1,18 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import useContentful from "../hooks/useContentful";
 import '../styles/RecipeDetails.css';
+import { fetchSingleRecipes } from "../api.js";
 
 
 export async function loader({ params }) {
-  const { getSingleReceipe } = useContentful();
-  const data = await getSingleReceipe(params.id);
-  return data;
+  const data = await fetchSingleRecipes(params.id);
+  return data[0];
 }
 
 const ReceipeDetail = () => {
-  const receipe = useLoaderData();
+  const recipe = useLoaderData();
   const navigate = useNavigate();
-  const { title, method , ingredients, picture, preptimeInMinutes} = receipe;
+  const { title, method , ingredients, picture, preptimeInMinutes} = recipe;
 
   return (
 
@@ -20,7 +20,7 @@ const ReceipeDetail = () => {
 
       <img
         className="recipeImg"
-        src={picture.file.url}
+        src={picture}
         alt="picture of delicious food"
         height="auto"/>
 

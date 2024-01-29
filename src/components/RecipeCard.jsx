@@ -13,6 +13,7 @@ const RecipeCard = ({ recipes, scrollToTop }) => {
     };
     useEffect(() => {
         pickRandomRecipes(recipes, 3);
+        console.log(randomRecipeSelection)
     }, [])
 
     return (
@@ -30,10 +31,10 @@ const RecipeCard = ({ recipes, scrollToTop }) => {
                         className="card" 
                         key={element.title}
                         onClick={() => {
-                            scrollToTop(element.receipeId);}
+                            scrollToTop(element.recipeId);}
                         }
                     >
-                        <img src={element.picture.file.url} alt={element.title} className="cardImg" />
+                        <img src={element.picture} alt={element.title} className="cardImg" />
                         <div className="card-body">
 
                             <div className="cardTopText">
