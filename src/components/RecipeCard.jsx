@@ -30,7 +30,7 @@ const RecipeCard = ({ recipes, scrollToTop }) => {
                         className="card" 
                         key={element.title}
                         onClick={() => {
-                            scrollToTop(element.receipeId);}
+                            scrollToTop(element.id);}
                         }
                     >
                         <img src={element.pictureurl} alt={element.title} className="cardImg" />

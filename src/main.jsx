@@ -21,12 +21,14 @@ const router = createBrowserRouter(createRoutesFromElements(
       loader={receipesLoader} 
       errorElement={<Error />}
     />
+
     <Route
-     path="/:id"
+     path="/recipes/:id"
      element={<ReceipeDetail />}
      loader={singleReceipesLoader} 
      errorElement={<Error />}
     />
+
   </Route>
 
 ));

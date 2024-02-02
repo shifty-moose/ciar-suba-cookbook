@@ -1,10 +1,9 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
-import useContentful from "../hooks/useContentful";
+import { getSingleReceipe } from "../hooks/useBackend.jsx";
 import '../styles/RecipeDetails.css';
 
 
 export async function loader({ params }) {
-  const { getSingleReceipe } = useContentful();
   const data = await getSingleReceipe(params.id);
   return data;
 }
@@ -12,7 +11,16 @@ export async function loader({ params }) {
 const ReceipeDetail = () => {
   const receipe = useLoaderData();
   const navigate = useNavigate();
-  const { title, method , ingredients, picture, preptimeInMinutes} = receipe;
+
+  let method = [];
+  let ingredients = [];    
+
+  receipe.forEach((element) => {
+    method.includes(element.todo) ? null : method.push(element.todo);
+    ingredients.includes(element.ingredients) ? null : ingredients.push(element.ingredients);
+  });
+
+  const { title, pictureurl, preptimeinminutes} = receipe[0];
 
   return (
 
@@ -20,7 +28,7 @@ const ReceipeDetail = () => {
 
       <img
         className="recipeImg"
-        src={picture.file.url}
+        src={pictureurl}
         alt="picture of delicious food"
         height="auto"/>
 
@@ -54,7 +62,7 @@ const ReceipeDetail = () => {
               <li key={index}>{ingredient}</li>
             ))}
           </ul>
-          <span className="prep-time-detail"><h4>{preptimeInMinutes} min. ⏱️</h4></span>
+          <span className="prep-time-detail"><h4>{preptimeinminutes} min. ⏱️</h4></span>
         </div>
 
       </div>

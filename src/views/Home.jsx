@@ -1,8 +1,10 @@
-import getReceipes from '../hooks/useContentful.jsx';
 import { useLoaderData, useNavigate } from "react-router-dom";
 import RecipeCard from '../components/RecipeCard';
 import RecipeList from '../components/RecipeList';
 import React, { useState, useEffect, useRef } from 'react';
+
+import {getReceipes} from '../hooks/useBackend.jsx';
+
 
 export function loader() {
   return getReceipes();
@@ -10,8 +12,6 @@ export function loader() {
 function Home() {
   const receipes = useLoaderData()
   const navigate = useNavigate();
-
-  console.log(receipes);
 
   const ref = useRef(null);
   const scrollToTop = (elementId) => {
@@ -21,7 +21,7 @@ function Home() {
         behavior: "smooth"
     });
     setTimeout(() => {
-        navigate(`/${elementId}`);
+        navigate(`/recipes/${elementId}`);
     }, 300);
     ref.current.setAttribute('style', 'opacity: 1')
   };

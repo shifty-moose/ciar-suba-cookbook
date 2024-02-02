@@ -59,7 +59,7 @@ const RecipeList = ({ recipes, scrollToTop }) => {
                 {filteredRecipes.map(element => (
                     <li key={element.id}
                         onClick={() => {
-                            scrollToTop(element.receipeId);
+                            scrollToTop(element.id);
                         }}>
                         <div className='recipeListItem'>
 
