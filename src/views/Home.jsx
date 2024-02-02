@@ -1,16 +1,17 @@
-import useContentful from '../hooks/useContentful';
+import getReceipes from '../hooks/useContentful.jsx';
 import { useLoaderData, useNavigate } from "react-router-dom";
 import RecipeCard from '../components/RecipeCard';
 import RecipeList from '../components/RecipeList';
 import React, { useState, useEffect, useRef } from 'react';
 
 export function loader() {
-  const { getReceipes } = useContentful();
   return getReceipes();
 }
 function Home() {
   const receipes = useLoaderData()
   const navigate = useNavigate();
+
+  console.log(receipes);
 
   const ref = useRef(null);
   const scrollToTop = (elementId) => {
