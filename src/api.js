@@ -1,6 +1,6 @@
 export const fetchAllRecipes = async() => {
   try {
-    const response = await fetch("http://localhost:8000/");
+    const response = await fetch("https://subaciar-backend.onrender.com");
     if(! response.ok) {
       throw new Error(error.message);
     }
@@ -13,7 +13,7 @@ export const fetchAllRecipes = async() => {
 
 export const fetchSingleRecipes = async(id) => {
   try {
-    const response = await fetch(`http://localhost:8000/${id}`);
+    const response = await fetch(`https://subaciar-backend.onrender.com/recipes/${id}`);
     if(! response.ok) {
       throw new Error(error.message);
     }

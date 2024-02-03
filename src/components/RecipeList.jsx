@@ -57,15 +57,15 @@ const RecipeList = ({ recipes, scrollToTop }) => {
             <ul className='listOfRecipes' ref={recipesRef}>
 
                 {filteredRecipes.map(element => (
-                    <li key={element.recipeId}
+                    <li key={element.id}
                         onClick={() => {
-                            scrollToTop(element.recipeId);
+                            scrollToTop(element.id);
                         }}>
                         <div className='recipeListItem'>
 
                             <div className="topText">
 
-                                <img src={element.picture} alt={element.title} />
+                                <img src={element.pictureurl} alt={element.title} />
 
                                 <div className="recipeInfo">
                                     <h3>{element.title}</h3>
@@ -76,7 +76,7 @@ const RecipeList = ({ recipes, scrollToTop }) => {
 
 
                             <div className="bottomText">
-                                <h5>{element.preptimeInMinutes} min. ⏱️</h5>
+                                <h5>{element.preptimeinminutes} min. ⏱️</h5>
                                 <h6>Click for Recipe    ▸</h6>
                             </div>
 

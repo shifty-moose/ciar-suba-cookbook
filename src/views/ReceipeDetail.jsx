@@ -1,5 +1,4 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
-import useContentful from "../hooks/useContentful";
 import '../styles/RecipeDetails.css';
 import { fetchSingleRecipes } from "../api.js";
 
@@ -12,8 +11,10 @@ export async function loader({ params }) {
 const ReceipeDetail = () => {
   const recipe = useLoaderData();
   const navigate = useNavigate();
-  const { title, method , ingredients, picture, preptimeInMinutes} = recipe;
-
+  const { title, methods_arr:method,
+     ingredients_arr: ingredients, pictureurl: picture,
+     preptimeinminutes} = recipe;
+ 
   return (
 
     <section className="detail-section">
@@ -54,7 +55,7 @@ const ReceipeDetail = () => {
               <li key={index}>{ingredient}</li>
             ))}
           </ul>
-          <span className="prep-time-detail"><h4>{preptimeInMinutes} min. ⏱️</h4></span>
+          <span className="prep-time-detail"><h4>{preptimeinminutes} min. ⏱️</h4></span>
         </div>
 
       </div>
