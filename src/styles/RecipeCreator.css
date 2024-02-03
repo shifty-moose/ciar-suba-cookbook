@@ -1,0 +1,94 @@
+.recipeCreator {
+    border: 2px solid red;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    min-height: 600px;
+    width: 80%;
+    margin: auto;
+}
+
+.leftSide {
+    border: 2px solid green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.formBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+}
+
+.formBody label {
+    font-size: 1.2rem;
+    padding: 0.4rem;
+}
+
+.formBody input, textarea, select {
+    border-style: none;
+    font-size: 1rem;
+    padding: 0.6rem;
+    width: 60%;
+    text-align: center;
+    border-radius: 0.8rem;
+    border: 1px solid black;
+}
+
+.nextBtn {
+    border-style: none;
+    align-self: flex-end;
+    margin-top: auto;
+}
+
+.prevBtn {
+    border-style: none;
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+.buttonsDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto;
+}
+
+.nextBtn, .prevBtn{
+    border-style: none;
+    padding: 0.6rem 1rem;
+    border-radius: 0.6rem;
+    cursor: pointer;
+}
+
+.nextBtn:hover, .prevBtn:hover {
+    background-color: #cbc7c7;
+}
+
+.ingredientList { 
+    border: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    padding: 1rem;
+    width: 100%;
+}
+
+.ingredientItem {
+    background-color: pink;
+    border: 2px solid red;
+    margin: 0.4rem;
+    width: 100%;
+    padding: 0.3rem 0.6rem;
+}
+
+ol {
+    padding: 0;
+}

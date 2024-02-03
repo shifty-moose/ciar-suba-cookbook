@@ -24,3 +24,27 @@ export const getSingleReceipe = async (id) => {
   };
 };
 
+export const createRecipe = async (recipe) => {
+
+  const sanitizedRecipe = {
+    title: recipe.title,
+    subheading: recipe.subheading,
+    description: recipe.description,
+    pictureurl: recipe.pictureurl,
+    preptimeinminutes: recipe.preptimeinminutes,
+    ingredients: recipe.ingredients,
+    method: recipe.method
+  };
+
+  try {
+    const response = await fetch('https://subaciar-backend.onrender.com/recipes', {
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(recipe)
+    });
+  } catch(error) {
+    console.error(`Error creating recipe: ${error}`);
+  };
+};

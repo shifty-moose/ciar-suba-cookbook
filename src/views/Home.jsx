@@ -1,6 +1,7 @@
 import { useLoaderData, useNavigate } from "react-router-dom";
 import RecipeCard from '../components/RecipeCard';
 import RecipeList from '../components/RecipeList';
+import CreateRecipe from "../components/form-components/CreateRecipe";
 import React, { useState, useEffect, useRef } from 'react';
 
 import {getReceipes} from '../hooks/useBackend.jsx';
@@ -30,13 +31,17 @@ function Home() {
     <>
       <section ref={ref}>
 
-        <RecipeCard
+        <CreateRecipe />
+
+        {/* <RecipeCard
         recipes={receipes}
         scrollToTop={scrollToTop}/>
 
         <RecipeList
         recipes={receipes}
-        scrollToTop={scrollToTop} />
+        scrollToTop={scrollToTop} /> */}
+
+
 
       </section>  
     </>
