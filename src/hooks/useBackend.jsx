@@ -1,6 +1,6 @@
 export const getReceipes = async () => {
   try {
-    const response = await fetch('https://subaciar-backend.onrender.com');
+    const response = await fetch('http://localhost:8000/');
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -13,7 +13,7 @@ export const getReceipes = async () => {
 
 export const getSingleReceipe = async (id) => {
   try {
-    const response = await fetch(`https://subaciar-backend.onrender.com/recipes/${id}`);
+    const response = await fetch(`http://localhost:8000/recipes/${id}`);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -37,7 +37,7 @@ export const createRecipe = async (recipe) => {
   };
 
   try {
-    const response = await fetch('https://subaciar-backend.onrender.com/recipes', {
+    const response = await fetch('http://localhost:8000/recipes/', {
       method: 'POST',
       header: {
         'Content-Type': 'application/json'

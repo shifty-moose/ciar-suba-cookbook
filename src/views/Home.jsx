@@ -27,11 +27,13 @@ function Home() {
     ref.current.setAttribute('style', 'opacity: 1')
   };
 
+  if (receipes === undefined) {
+    return <div>Loading...</div>
+  };
+
   return (
     <>
       <section ref={ref}>
-
-        <CreateRecipe />
 
         {/* <RecipeCard
         recipes={receipes}
@@ -41,6 +43,7 @@ function Home() {
         recipes={receipes}
         scrollToTop={scrollToTop} /> */}
 
+        <CreateRecipe /> 
 
 
       </section>  

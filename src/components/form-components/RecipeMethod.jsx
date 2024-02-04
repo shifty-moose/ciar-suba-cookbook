@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const RecipeMethod = ( { recipe, handleChange, setRecipe, prevStep, nextStep } ) => {
+const RecipeMethod = ( { recipe, handleChange, listOfNewMethods, setListOfNewMethods, setRecipe, prevStep, nextStep } ) => {
 
     const [newMethod, setNewMethod] = useState('');
 
@@ -11,40 +11,58 @@ const RecipeMethod = ( { recipe, handleChange, setRecipe, prevStep, nextStep } )
 
     const nextPage = (e) => {
         e.preventDefault();
+        setRecipe({ ...recipe, method: listOfNewMethods });
         nextStep();
     };
 
     const handleNewMethod = (e) => {
+        e.preventDefault();
         setNewMethod(e.target.value);
     };
 
     const addMethod = (e) => {
         e.preventDefault();
-        setRecipe({ ...recipe, method: [...recipe.method, newMethod] });
+        setListOfNewMethods([...listOfNewMethods, newMethod]);
         setNewMethod('');
     };
 
-    const testFunc = (e) => {
+    const deleteMethod = (e, index) => {
         e.preventDefault();
-        console.log(recipe);
+        setListOfNewMethods(listOfNewMethods.filter((method, i) => i !== index));
     };
 
     return (
     <>
         <form className='formBody'>
-            <label>Method:
-                <input name='ingredients' value={newMethod} onChange={handleNewMethod}/>
+            <div className='searchBarContainer'>
+            <label>Add your Instructions:
             </label>
-            <button onClick={addMethod}>Add Method</button>
-
-            <div className='buttonsDiv'>
-            <button className='prevBtn' onClick={prevPage}>Prev</button>
-            <button className='nextBtn' onClick={nextPage}>Next</button>
+            <div className='searchBar'>
+                <input name='method' value={newMethod} onChange={handleNewMethod}/>
+                <button onClick={addMethod}>+</button>
             </div>
-            
-        <button onClick={testFunc} type='submit'>Submit</button>
+            </div>
 
+            <div className='methodList'>
+                {listOfNewMethods.map((method, index) => {
+                    return <div className='methodItem' key={index}>
+                        {index + 1}.{'\u00A0'}{method}
+                        <button onClick={() => deleteMethod(event, index)} className='deleteBtn'><span className="material-symbols-outlined">
+                        delete
+                        </span></button>
+
+                        </div>
+                  
+                })}
+
+            </div>
         </form>
+
+        <div className='buttonsDiv'>
+        <button className='prevBtn' onClick={prevPage}>Prev</button>
+        <button className='nextBtn' onClick={nextPage}>Next</button>
+        </div>
+
     </>
     )
 }

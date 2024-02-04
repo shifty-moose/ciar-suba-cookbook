@@ -16,6 +16,7 @@ const RecipeIngredients = ( { recipe, handleChange, listOfNewIngredients, setLis
     };
 
     const handleNewIngredient = (e) => {
+        e.preventDefault();
         setNewIngredient(e.target.value);
     };
 
@@ -25,35 +26,41 @@ const RecipeIngredients = ( { recipe, handleChange, listOfNewIngredients, setLis
         setNewIngredient('');
     };
 
-    const deleteIngredient = (index) => {
+    const deleteIngredient = (e, index) => {
+        e.preventDefault();
         setListOfNewIngredients(listOfNewIngredients.filter((ingredient, i) => i !== index));
     };
     
     return (
     <>
         <form className='formBody'>
-            <label>Ingredients:
-                <input name='ingredients' value={newIngredient} onChange={handleNewIngredient}/>
+            <div className='searchBarContainer'>
+            <label>Add your Ingredients:
             </label>
-            <button onClick={addIngredient}>Add Ingredient</button>
+            <div className='searchBar'>
+                <input name='ingredients' value={newIngredient} onChange={handleNewIngredient} />
+                <button onClick={addIngredient}>+</button>
+            </div>
+            </div>
 
             <div className='ingredientList'>
                 {listOfNewIngredients.map((ingredient, index) => {
                     return <div className='ingredientItem' key={index}>
                         {ingredient}
-                        <button onClick={() => deleteIngredient(index)} className='deleteBtn'>Delete</button>
+                        <button onClick={() => deleteIngredient(event, index)} className='deleteBtn'><span className="material-symbols-outlined">
+                        delete
+                        </span></button>
 
                         </div>
                 })}
             
             </div>
-
-            <div className='buttonsDiv'>
-            <button className='prevBtn' onClick={prevPage}>Prev</button>
-            <button className='nextBtn' onClick={nextPage}>Next</button>
-            </div>
-
         </form>
+        <div className='buttonsDiv'>
+                <button className='prevBtn' onClick={prevPage}>Prev</button>
+                <button className='nextBtn' onClick={nextPage}>Next</button>
+        </div>
+
     </>
     )
 }

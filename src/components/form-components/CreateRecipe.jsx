@@ -3,7 +3,7 @@ import RecipeDetails from './RecipeDetails';
 import RecipeExtraInfo from './RecipeExtraInfo';
 import RecipeIngredients from './RecipeIngredients';
 import RecipeMethod from './RecipeMethod';
-import FormVisualiser from './FormVisualiser';
+import RecipePreview from './RecipePreview';
 import '../../styles/RecipeCreator.css';
 
 const CreateRecipe = () => {
@@ -13,12 +13,14 @@ const CreateRecipe = () => {
         description: '',
         type: '',
         pictureurl: '',
-        preptimeinminutes: '',
+        preptimeinminutes: 0,
         ingredients: [],
         method: []
     });
 
     const [listOfNewIngredients, setListOfNewIngredients] = useState([]);
+
+    const [listOfNewMethods, setListOfNewMethods] = useState([]);
 
 
     const [page, setPage] = useState(0);
@@ -52,6 +54,7 @@ const CreateRecipe = () => {
             componentToRender = (
                 <RecipeExtraInfo
                     recipe={recipe}
+                    setRecipe={setRecipe}
                     handleChange={handleChange}
                     nextStep={nextStep}
                     prevStep={prevStep}
@@ -78,7 +81,19 @@ const CreateRecipe = () => {
                 <RecipeMethod
                     recipe={recipe}
                     handleChange={handleChange}
+                    listOfNewMethods={listOfNewMethods}
+                    setListOfNewMethods={setListOfNewMethods}
                     setRecipe={setRecipe}
+                    prevStep={prevStep}
+                    nextStep={nextStep}
+                />
+            );
+            break;
+
+        case 4:
+            componentToRender = (
+                <RecipePreview
+                    recipe={recipe}
                     prevStep={prevStep}
                 />
             );
@@ -90,17 +105,12 @@ const CreateRecipe = () => {
 
     return (
         <>
-            <h1>Hellooo</h1>
-
             <div className='recipeCreator'>
 
+            <h1>Create a new recipe</h1>
             <div className='leftSide'>
             {componentToRender}
             </div>
-{/* 
-            <FormVisualiser
-                recipe={recipe}
-            /> */}
 
             </div>
         </>

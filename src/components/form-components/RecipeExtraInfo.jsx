@@ -1,6 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-const RecipeExtraInfo = ( { recipe, handleChange, prevStep, nextStep } ) => {
+const RecipeExtraInfo = ( { recipe, setRecipe, handleChange, prevStep, nextStep } ) => {
+
+    const [selectedImg, setSelectedImg] = useState(null);
+    const [previewUrl, setPreviewUrl] = useState("");
 
     const prevPage = (e) => {
         e.preventDefault();
@@ -12,48 +15,39 @@ const RecipeExtraInfo = ( { recipe, handleChange, prevStep, nextStep } ) => {
         nextStep();
     };
 
+    const uploadImag = (e) => {
+        e.preventDefault();
+
+        const file = e.target.files[0];
+        setSelectedImg(file);
+
+        const url = URL.createObjectURL(file);
+        setPreviewUrl(url);
+
+        setRecipe({ ...recipe, pictureurl: url });
+    };
+
     return (
     <>    
-        <form className='formBody'>
+        <form 
+            action='/api/recipe'
+            className='formBody inputsForm'
+            encType='multipart/form-data'
+            method='POST'>
 
-            <label>Subheading:
+            <label>
+            Upload your picture:
+            <input type='file' name='picture' onChange={uploadImag} />
             </label>
-            <input type='text' name='subheading' value={recipe.subheading} onChange={handleChange}/>
 
-
-            <label>Description:
-            </label>
-            <textarea name='description' value={recipe.description} onChange={handleChange}/>
-
-
-            <label>Type:
-            </label>
-            <select name='type' value={recipe.type} onChange={handleChange}>
-                <option value=''>Choose One</option>
-                <option value='pizza'>Pizza</option>
-                <option value='pasta'>Pasta</option>
-                <option value='dessert'>Dessert</option>
-                <option value='other'>Other</option>
-            </select>
-
-
-            <label>Picture URL:
-            </label>
-            <input type='text' name='pictureurl' value={recipe.pictureurl} onChange={handleChange}/>
-
-
-            <label>Prep Time (in minutes):
-            </label>
-            <input type='number' name='preptimeinminutes' value={recipe.preptimeinminutes} onChange={handleChange}/>
-
-
-            <div className='buttonsDiv'>
-                <button className='prevBtn' onClick={prevPage}>Prev</button>
-                <button className='nextBtn' onClick={nextPage}>Next</button>
-            </div>
-
+            {recipe.pictureurl ? <img src={recipe.pictureurl} alt='Preview' /> : <img src={previewUrl} alt='Preview' />}
 
         </form>
+
+        <div className='buttonsDiv'>
+                <button className='prevBtn' onClick={prevPage}>Prev</button>
+                <button className='nextBtn' onClick={nextPage}>Next</button>
+        </div>
     </>
 
     )

@@ -1,29 +1,49 @@
 .recipeCreator {
-    border: 2px solid red;
+    border-top: 16px solid rgb(227, 7, 19);
+    border-bottom: 16px solid rgb(11, 151, 32);
+    background-color: rgb(79, 53, 11);
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    min-height: 600px;
-    width: 80%;
+    min-height: 700px;
+    width: 100%;
     margin: auto;
+    padding-top: 4rem;
+    padding-bottom: 6%;
+}
+
+.recipeCreator h1 {
+    color: rgb(238, 209, 141);
+    font-size: 2rem;
+    padding: 1.5rem 0rem 2.5rem 0rem;
+    margin: 0;
 }
 
 .leftSide {
     border: 2px solid green;
+    border-radius: 1rem;
+    background-color: rgb(255, 249, 236);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: space-between;
     width: 50%;
+    min-height: 500px;
+    padding: 1rem;
 }
 
 .formBody {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
     width: 80%;
-    height: 80%;
+    min-height: 400px;
+    padding-top: 1rem;
+}
+
+.inputsForm {
+    justify-content: space-around;
 }
 
 .formBody label {
@@ -38,42 +58,69 @@
     width: 60%;
     text-align: center;
     border-radius: 0.8rem;
-    border: 1px solid black;
-}
-
-.nextBtn {
-    border-style: none;
-    align-self: flex-end;
-    margin-top: auto;
-}
-
-.prevBtn {
-    border-style: none;
-    align-self: flex-start;
-    margin-top: auto;
 }
 
 .buttonsDiv {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 100%;
-    margin-top: auto;
+    width: 80%;
+    padding-bottom: 1rem;
 }
 
-.nextBtn, .prevBtn{
+.nextBtn, .prevBtn, .submitBtn{
     border-style: none;
     padding: 0.6rem 1rem;
     border-radius: 0.6rem;
     cursor: pointer;
 }
 
-.nextBtn:hover, .prevBtn:hover {
+.nextBtn:hover, .prevBtn:hover, .submitBtn:hover {
     background-color: #cbc7c7;
 }
 
-.ingredientList { 
-    border: 2px solid blue;
+.searchBarContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 1rem;
+}
+
+.searchBar {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0.6rem;
+}
+  
+.searchBar input {
+    padding-right: 30px; 
+    border-radius: 1rem 0rem 0rem 1rem;
+    background-color: rgb(228, 228, 228);
+}
+
+textarea:focus, input:focus{
+    outline: none;
+}
+
+.searchBar button {
+    border-style: none;
+    padding: 0;
+    border-radius: 0rem 1rem 1rem 0rem;
+    width: 30px;
+    top: 0;
+}
+
+.searchBar button:hover {
+    background-color: #cbc7c7;
+    cursor: pointer;
+}
+
+.ingredientList, .methodList { 
     display: flex;
     flex-direction: column;
     margin: 1rem;
@@ -81,14 +128,50 @@
     width: 100%;
 }
 
-.ingredientItem {
-    background-color: pink;
-    border: 2px solid red;
-    margin: 0.4rem;
-    width: 100%;
-    padding: 0.3rem 0.6rem;
+.ingredientItem, .methodItem {
+    background-color: rgb(221, 221, 221);
+    border-radius: 0.6rem;
+    padding: 0.8rem 1.6rem;
+    margin: 0.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.deleteBtn {
+    border-style: none;
+    background: none;
+    border-radius: 0.6rem;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    padding-top: 0.1rem;
+}
+
+.deleteBtn:hover {
+    color: #cbc7c7;
+}
+
+ul {
+    list-style-type: none; 
+}
+  
+ul li::before {
+    content: '•'; 
+    padding-right: 1rem;
 }
 
 ol {
+    counter-reset: item; 
+    list-style-type: none; 
     padding: 0;
+}
+  
+ol li {
+    counter-increment: item; 
+}
+  
+ol li::before {
+    content: counter(item) '.'; 
+    padding-right: 10px; 
 }

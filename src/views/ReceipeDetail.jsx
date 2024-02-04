@@ -15,10 +15,7 @@ const ReceipeDetail = () => {
   let method = [];
   let ingredients = [];    
 
-  receipe.forEach((element) => {
-    method.includes(element.todo) ? null : method.push(element.todo);
-    ingredients.includes(element.ingredients) ? null : ingredients.push(element.ingredients);
-  });
+  console.log(receipe[0])
 
   const { title, pictureurl, preptimeinminutes} = receipe[0];
 
@@ -58,7 +55,7 @@ const ReceipeDetail = () => {
         <div className="detail-ingridients">
           <h3> Ingredients</h3>
           <ul>
-            {ingredients.map((ingredient, index) => (
+            {receipe[0].ingredients_arr.map((ingredient, index) => (
               <li key={index}>{ingredient}</li>
             ))}
           </ul>
@@ -74,7 +71,7 @@ const ReceipeDetail = () => {
 
           <h3>Method:</h3>
             <ol>
-              {method.map((step, index) => (
+              {receipe[0].methods_arr.map((step, index) => (
                 <li key={index}>{step}</li>
               ))}
             </ol>
